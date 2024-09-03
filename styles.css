@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    transition: margin-left 0.3s; /* Transición para mover el contenido junto con la barra */
+}
+
+.sidebar {
+    width: 200px; /* Ancho inicial de la barra lateral */
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed; /* Fija la barra lateral para que no afecte el flujo del contenido */
+    transition: transform 0.3s; /* Transición para ocultar y mostrar la barra */
+    z-index: 1000;
+}
+
+.logo-top, .logo-bottom {
+    height: 100px;
+    background-color: #333;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-top img, .logo-bottom img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.sidebar-toggle {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    top: 10px;
+    right: -40px; /* Posición del botón fuera de la barra lateral */
+    z-index: 1001;
+}
+
+.sidebar-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.sidebar-button:hover {
+    background-color: #555;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    color: #000;
+    margin-left: 280px; /* Empieza el contenido después de la barra lateral */
+    transition: margin-left 0.3s; /* Transición para mover el contenido cuando la barra se oculta */
+}
+
+.sidebar.hidden {
+    transform: translateX(-200px); /* Oculta la barra lateral completamente */
+}
+
+.content.sidebar-hidden {
+    margin-left: 50px; /* Mueve el contenido para ocupar todo el espacio cuando la barra está oculta */
+}
+/* Estilos para la lista flotante (dropdown) */
+.dropdown {
+    display: none; /* Oculta la lista por defecto */
+    background-color: #fff;
+    position: absolute; /* Posiciona la lista flotante */
+    left: 210px; /* Posiciona la lista justo a la derecha de la barra lateral */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1002;
+    width: 200px; /* Ancho de la lista, se puede ajustar según se necesite */
+}
+
+.dropdown a {
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.dropdown a:hover {
+    background-color: #cfcfcf; /* Color de fondo cuando se pasa el cursor sobre una opción */
+}

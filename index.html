@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="logo-top">
+            <!-- Aquí puedes colocar tu logo superior -->
+            <img src="logo-superior.png" alt="Logo logo-superior">
+        </div>
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="sidebar-buttons">
+            <!-- Ejemplo de un botón en la barra lateral -->
+            <button class="sidebar-button" onclick="toggleDropdown('dropdown1')">Botón con Lista</button>
+            <div class="dropdown" id="dropdown1">
+                <a href="#">Opción 1</a>
+                <a href="#">Opción 2</a>
+                <a href="#">Opción 3</a>
+            </div>
+            <button class="sidebar-button">Botón 1</button>
+            <button class="sidebar-button">Botón 2</button>
+            <!-- Puedes agregar más botones aquí -->
+        </div>
+        <div class="logo-top">
+            <!-- Aquí puedes colocar tu logo inferior -->
+            <img src="logo-inferior.png" alt="Logo Inferior">
+        </div>
+    </div>
+    <div class="content" id="content">
+        <!-- Aquí va el contenido principal de la página -->
+        <h1>Bienvenido al Panel de Control</h1>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
