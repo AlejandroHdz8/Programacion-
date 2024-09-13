@@ -1,107 +1,197 @@
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     display: flex;
-    transition: margin-left 0.3s; /* Transición para mover el contenido junto con la barra */
+    background-color: #fff;
+    color: #000;
 }
 
 .sidebar {
-    width: 200px; /* Ancho inicial de la barra lateral */
+    width: 250px;
     background-color: #000;
     color: #fff;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: fixed; /* Fija la barra lateral para que no afecte el flujo del contenido */
-    transition: transform 0.3s; /* Transición para ocultar y mostrar la barra */
-    z-index: 1000;
-}
-
-.logo-top, .logo-bottom {
-    height: 100px;
-    background-color: #333;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo-top img, .logo-bottom img {
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.sidebar-toggle {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
-    outline: none;
-    position: absolute;
-    top: 10px;
-    right: -40px; /* Posición del botón fuera de la barra lateral */
-    z-index: 1001;
-}
-
-.sidebar-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.sidebar-button {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    margin: 10px 0;
-    padding: 10px;
-    width: 80%;
-    cursor: pointer;
-    text-align: center;
-}
-
-.sidebar-button:hover {
-    background-color: #555;
-}
-
-.content {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #fff;
-    color: #000;
-    margin-left: 280px; /* Empieza el contenido después de la barra lateral */
-    transition: margin-left 0.3s; /* Transición para mover el contenido cuando la barra se oculta */
+    height: 100vh;
+    transition: transform 0.3s ease;
+    position: fixed;
+    z-index: 100;
+    transform: translateX(0);
 }
 
 .sidebar.hidden {
-    transform: translateX(-200px); /* Oculta la barra lateral completamente */
+    transform: translateX(-100%);
 }
 
-.content.sidebar-hidden {
-    margin-left: 50px; /* Mueve el contenido para ocupar todo el espacio cuando la barra está oculta */
-}
-/* Estilos para la lista flotante (dropdown) */
-.dropdown {
-    display: none; /* Oculta la lista por defecto */
-    background-color: #fff;
-    position: absolute; /* Posiciona la lista flotante */
-    left: 210px; /* Posiciona la lista justo a la derecha de la barra lateral */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1002;
-    width: 200px; /* Ancho de la lista, se puede ajustar según se necesite */
+.logo img {
+    width: 100%;
+    padding: 10px;
+    background-color: #222;
 }
 
-.dropdown a {
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-    display: block;
+.toggle-btn {
+    background-color: #222;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: 15px;
     text-align: center;
 }
 
-.dropdown a:hover {
-    background-color: #cfcfcf; /* Color de fondo cuando se pasa el cursor sobre una opción */
+.menu li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+}
+
+.content.hidden {
+    margin-left: 0;
+}
+
+.show-sidebar {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 101;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.sidebar.hidden + .content .show-sidebar {
+    display: block;
+}
+
+.plan-card {
+    background-color: #f9f9f9;
+    border: 1px solid #333;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.plan-card.active::before {
+    content: 'Activo';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: green;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.plan-card.inactive::before {
+    content: 'Inactivo';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.adjuntar-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input[type="text"],
+form select,
+form input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button[type="submit"] {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+form button[type="submit"]:hover {
+    background-color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+a.download-link {
+    color: #000;
+    text-decoration: none;
+}
+
+a.download-link:hover {
+    text-decoration: underline;
+}
+
+.notification {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 102;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,32 +8,31 @@
 </head>
 <body>
     <div class="sidebar" id="sidebar">
-        <div class="logo-top">
-            <!-- Aquí puedes colocar tu logo superior -->
-            <img src="logo-superior.png" alt="Logo logo-superior">
+        <div class="logo">
+            <!-- Logo Superior -->
+            <img src="logo_superior.png" alt="Logo Superior">
         </div>
-        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
-        <div class="sidebar-buttons">
-            <!-- Ejemplo de un botón en la barra lateral -->
-            <button class="sidebar-button" onclick="toggleDropdown('dropdown1')">Botón con Lista</button>
-            <div class="dropdown" id="dropdown1">
-                <a href="#">Opción 1</a>
-                <a href="#">Opción 2</a>
-                <a href="#">Opción 3</a>
-            </div>
-            <button class="sidebar-button">Botón 1</button>
-            <button class="sidebar-button">Botón 2</button>
-            <!-- Puedes agregar más botones aquí -->
-        </div>
-        <div class="logo-top">
-            <!-- Aquí puedes colocar tu logo inferior -->
-            <img src="logo-inferior.png" alt="Logo Inferior">
+        <button class="toggle-btn" id="toggle-btn">☰</button>
+        <ul class="menu">
+            <li><a href="#" id="plan-rotacion">Plan de Rotación</a></li>
+            <li><a href="#" id="registrar-plan">Registrar Plan de Rotación</a></li>
+            <li><a href="#" id="reporte">Reporte</a></li>
+            <li><a href="#" id="cerrar-sesion">Cerrar Sesión</a></li>
+        </ul>
+        <div class="logo">
+            <!-- Logo Inferior -->
+            <img src="logo_inferior.png" alt="Logo Inferior">
         </div>
     </div>
     <div class="content" id="content">
-        <!-- Aquí va el contenido principal de la página -->
+        <button class="show-sidebar" id="show-sidebar">Mostrar barra</button>
         <h1>Bienvenido al Panel de Control</h1>
+        <p>Seleccione una opción en la barra lateral para comenzar.</p>
+        <!-- Aquí se cargará el contenido dinámico -->
     </div>
+
+    <div id="notification" class="notification"></div>
+
     <script src="script.js"></script>
 </body>
 </html>
